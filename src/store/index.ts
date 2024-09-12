@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import tarefasReducers from './reducers/tarefas'
+import filtroReducer from './reducers/filtro'
 
 const store = configureStore({
   reducer: {
-    tarefas: tarefasReducers
+    tarefas: tarefasReducers,
+    filtro: filtroReducer
   }
 })
 
