@@ -4,16 +4,17 @@ import { Container } from './styles'
 import { RootRecucer } from '../../store'
 
 export const ListaDeTarefas = () => {
-  const { tarefas } = useSelector((state: RootRecucer) => state)
+  const { itens } = useSelector((state: RootRecucer) => state.tarefas)
   return (
     <Container>
       <p>
         2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;termo&ldquo;
       </p>
       <ul>
-        {tarefas.map((t) => (
+        {itens.map((t) => (
           <li key={t.titulo}>
             <Tarefa
+              id={t.id}
               descricao={t.descricao}
               titulo={t.titulo}
               status={t.status}
