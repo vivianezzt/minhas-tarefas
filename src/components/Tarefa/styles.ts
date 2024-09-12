@@ -1,21 +1,26 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
+import * as enums from '../../utils/enums/Tarefas'
 
 type TagProps = {
-  prioridade?: string
-  status?: string
+  prioridade?: enums.Prioridade
+  status?: enums.Status
+  parametro: 'status' | 'prioridade'
 }
 
-function retornaCorDefundo(props: TagProps): string {
-  if ('status' in props) {
-    if (props.status === 'pendente') return variaveis.amarelo
-    if (props.status === 'concluída') return variaveis.verde
+function retornaCorDefundo(props: TagProps) {
+  if (props.parametro === 'status') {
+    if (props.status === enums.Status.PENDENTE) return variaveis.amarelo
+    if (props.status === enums.Status.CONCLUIDA) return variaveis.verde
   } else {
-    if (props.prioridade === 'urgente') return variaveis.vermelho2
-    if (props.prioridade === 'importante') return variaveis.laranja
+    if (props.prioridade === enums.Prioridade.URGENTE)
+      return variaveis.vermelho2
+    if (props.prioridade === enums.Prioridade.IMPORTANTE)
+      return variaveis.laranja
   }
-  return '#ccc'
+  return '#394aef'
 }
+
 export const Card = styled.div`
   background-color: #fcfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
