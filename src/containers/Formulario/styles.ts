@@ -20,6 +20,7 @@ export const Opcoes = styled.div`
   }
   label {
     margin-right: 8px;
+    margin-left: 8px;
   }
 `
 export const Opcao = styled.div`

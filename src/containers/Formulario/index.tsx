@@ -15,7 +15,6 @@ const Formulario = () => {
   const [titulo, setTitulo] = useState('')
   const [descricao, setDescricao] = useState('')
   const [prioridade, setPrioridade] = useState(enums.Prioridade.NORMAL)
-
   const cadastrarTarefa = (evento: FormEvent) => {
     evento.preventDefault()
 
@@ -29,6 +28,7 @@ const Formulario = () => {
     dispatch(cadastrar(tarefaParaAdicionar))
     navigate('/')
   }
+
   return (
     <MainContainer>
       <Titulo>Nova Tarefa</Titulo>
