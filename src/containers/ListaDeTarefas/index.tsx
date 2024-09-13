@@ -8,10 +8,16 @@ export const ListaDeTarefas = () => {
   const { termo } = useSelector((state: RootRecucer) => state.filtro)
 
   const filtraTarefas = () => {
-    return itens.filter(
-      (item) => item.titulo.toLowerCase().search(termo.toLocaleLowerCase()) >= 0
-    )
+    if (termo) {
+      return itens.filter(
+        (item) =>
+          item.titulo.toLocaleLowerCase().search(termo.toLocaleLowerCase()) >= 0
+      )
+    } else {
+      return itens
+    }
   }
+
   return (
     <Container>
       <p>
